@@ -1,0 +1,24 @@
+<div class="main-container">
+  <div class="location-container">
+    <div>Current city: {{currentCity?.name}}</div>
+    <div>Country: {{currentCity?.country}}</div>
+    <div>Latitude : {{currentCity?.coord?.lat}}</div>
+    <div>Longitude: {{currentCity?.coord?.lon}}</div>
+    <mat-form-field >
+      <input
+        matInput
+        #searchBox
+        placeholder="Search new city(EN)"
+        type="search"
+        (keyup)="search(searchBox.value)"
+        (focus)="changeFocus('focus')"
+        (blur)="changeFocus('blur')">
+
+      <ul class="search-result" *ngIf="showDropDown">
+        <li *ngFor="let city of cities$ | async" (click)="chooseCity(city)">
+            {{city.name}}
+        </li>
+      </ul>
+    </mat-form-field>
+  </div>
+</div>

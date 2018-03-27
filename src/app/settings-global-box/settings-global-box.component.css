@@ -1,0 +1,27 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 1em 1em 0 1em;
+  font-size: 1.1em;
+}
+
+.global-box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.time-slider {
+  width: 15em;
+  margin: .5em 0 0 0;
+  padding: 0;
+}
+
+.date-period {
+  color: #666666;
+  margin: .1em .5em;
+}
+

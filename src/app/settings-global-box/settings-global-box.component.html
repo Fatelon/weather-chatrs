@@ -1,0 +1,28 @@
+<div class="main-container">
+  <div class="global-box-container">
+    <div class="date-period">
+      Free weather API allows us to get data
+    </div>
+    <div class="date-period">
+      only for the next 5 days (or less).
+    </div>
+    <div class="date-period">
+      Select the right time border(in hours):
+    </div>
+    <div class="time-slider">
+      <mat-slider
+        #timeSlider
+        class="time-slider"
+        [min]="6"
+        [max]="120"
+        [step]="6"
+        [value]="chartTimePeriod.to"
+        [thumb-label]="true"
+        (change)="changeTimeRange(timeSlider.value)">
+      </mat-slider>
+    </div>
+  </div>
+  <div class="global-box-container">
+    <app-location-box></app-location-box>
+  </div>
+</div>

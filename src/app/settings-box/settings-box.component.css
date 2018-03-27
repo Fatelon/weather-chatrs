@@ -1,0 +1,28 @@
+.settings-main-container {
+  border-radius: 20px;
+  border: 2px solid #616161;
+  padding: .8em;
+  margin: auto;
+  /*text-align: center;*/
+  width: 90%;
+}
+
+h2.title {
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #666;
+  padding: 0;
+  margin: 0;
+}
+
+h2:hover {
+  cursor: pointer;
+}
+
+mat-cell {
+  overflow: visible;
+}
+
+.select-thickness {
+  width: 30px;
+}

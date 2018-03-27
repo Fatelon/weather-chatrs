@@ -1,0 +1,16 @@
+<div *ngIf="chart" class="chart-view-container" onmousedown="return false">
+
+  <div class='navigation-panel' (click)="onArrowClick(-1)">
+    <i class='material-icons arrow'>chevron_left</i>
+  </div>
+
+  <div class="chart-view-canvas">
+    <canvas id="chartCanvas">{{ chart }}</canvas>
+  </div>
+
+  <div class='navigation-panel' (click)="onArrowClick(1)">
+    <!--<mat-icon class="large arrow">keyboard_arrow_right</mat-icon>-->
+    <i class='material-icons arrow'>chevron_right</i>
+  </div>
+
+</div>

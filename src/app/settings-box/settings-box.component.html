@@ -1,0 +1,57 @@
+<!--<div class="settings-main-container" onmousedown="return false">-->
+<div class="settings-main-container" >
+
+  <h2
+    class="title"
+    [style.color]="showSettings ? '#333' : '#666'"
+    (click)="changeSettingsShowStatus()" >SETTINGS BOX</h2>
+
+  <div *ngIf="showSettings" class="settings-container">
+    <app-settings-global-box></app-settings-global-box>
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let chart_data;"> {{chart_data.name}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="usage">
+        <mat-header-cell *matHeaderCellDef> Usage </mat-header-cell>
+        <mat-cell *matCellDef="let chart_data;">
+          <mat-checkbox
+            [checked]="chart_data.usage"
+            (change)="changeChartData(chart_data, 'usage', !chart_data.usage)"></mat-checkbox>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fill">
+        <mat-header-cell *matHeaderCellDef> Fill </mat-header-cell>
+        <mat-cell *matCellDef="let chart_data;">
+          <mat-checkbox
+            [disabled]="!showFill"
+            [checked]="showFill ? chart_data.fill : false"
+            (change)="changeChartData(chart_data, 'fill', !chart_data.fill)"></mat-checkbox>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="thickness">
+        <mat-header-cell *matHeaderCellDef> Thickness </mat-header-cell>
+        <mat-cell *matCellDef="let chart_data;">
+          <mat-select
+            class="select-thickness"
+            [value]="chart_data.thickness"
+            (change)="changeChartData(chart_data, 'thickness', $event.value)">
+            <mat-option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">{{num}}</mat-option>
+          </mat-select>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="color">
+        <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+        <mat-cell *matCellDef="let chart_data;">
+          <input
+            type="color"
+            value={{chart_data.color}}
+            (change)="changeChartData(chart_data, 'color', $event.target.value)"/>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>
